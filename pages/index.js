@@ -1,5 +1,8 @@
 import Link from 'next/link';
 import { getPosts } from '../utils/mdx-utils';
+import Image from 'next/image'; // Import the Image component
+import lambStack from '../pages/assets/lambstack.jpeg';
+
 
 import Footer from '../components/Footer';
 import Header from '../components/Header';
@@ -8,7 +11,7 @@ import ArrowIcon from '../components/ArrowIcon';
 import { getGlobalData } from '../utils/global-data';
 import SEO from '../components/SEO';
 
-export default function Index({ posts, globalData }) {
+export default function InIndexdex({ posts, globalData }) {
   return (
     <Layout>
       <SEO title={globalData.name} description={globalData.blogTitle} />
@@ -34,6 +37,13 @@ export default function Index({ posts, globalData }) {
                     </p>
                   )}
                   <h2 className="text-2xl md:text-3xl">{post.data.title}</h2>
+                  {/* <Image
+                    src={post.data.image}
+                    alt="logo"
+                    width={100} // Set the desired width of the image
+                    height={100} // Set the desired height of the image
+                    className="rounded-full block mx-auto mb-4 bg-black p-2"
+                  /> */}
                   {post.data.description && (
                     <p className="mt-3 text-lg opacity-60">
                       {post.data.description}
