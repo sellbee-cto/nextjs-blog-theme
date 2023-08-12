@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { getPosts } from '../utils/mdx-utils';
 import Image from 'next/image'; // Import the Image component
-import lambStack from '../pages/assets/lambstack.jpeg';
+// import lambStack from '../pages/assets/lambstack.jpeg';
 
 
 import Footer from '../components/Footer';
@@ -21,7 +21,8 @@ export default function InIndexdex({ posts, globalData }) {
           {globalData.blogTitle}
         </h1>
         <ul className="w-full">
-          {posts.map((post) => (
+          {posts.map((post) => {
+            return (
             <li
               key={post.filePath}
               className="md:first:rounded-t-lg md:last:rounded-b-lg backdrop-blur-lg bg-white dark:bg-black dark:bg-opacity-30 bg-opacity-10 hover:bg-opacity-20 dark:hover:bg-opacity-50 transition border border-gray-800 dark:border-white border-opacity-10 dark:border-opacity-10 border-b-0 last:border-b hover:border-b hovered-sibling:border-t-0"
@@ -37,13 +38,7 @@ export default function InIndexdex({ posts, globalData }) {
                     </p>
                   )}
                   <h2 className="text-2xl md:text-3xl">{post.data.title}</h2>
-                  {/* <Image
-                    src={post.data.image}
-                    alt="logo"
-                    width={100} // Set the desired width of the image
-                    height={100} // Set the desired height of the image
-                    className="rounded-full block mx-auto mb-4 bg-black p-2"
-                  /> */}
+              
                   {post.data.description && (
                     <p className="mt-3 text-lg opacity-60">
                       {post.data.description}
@@ -53,7 +48,7 @@ export default function InIndexdex({ posts, globalData }) {
                 </a>
               </Link>
             </li>
-          ))}
+          )})}
         </ul>
       </main>
       <Footer copyrightText={globalData.footerText} />

@@ -15,6 +15,11 @@ import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import Layout, { GradientBackground } from '../../components/Layout';
 import SEO from '../../components/SEO';
+import Image from 'next/image'; // 
+import lambstack from "../assets/lambstack.jpeg"
+import ribeye from "../assets/ribeye.jpeg"
+import petterhouse from "../assets/petterhouse.jpeg"
+import tomahawk from "../assets/tomahawk.jpeg"
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
@@ -35,6 +40,7 @@ export default function PostPage({
   nextPost,
   globalData,
 }) {
+  // const imageUrl = `../assets/${frontMatter?.image}.jpeg`;
   return (
     <Layout>
       <SEO
@@ -47,6 +53,51 @@ export default function PostPage({
           <h1 className="text-3xl md:text-5xl dark:text-white text-center mb-12">
             {frontMatter.title}
           </h1>
+          {
+            frontMatter?.image === "lambstack" && (
+              <Image
+              src={lambstack}
+              alt="logo"
+              width={800} // Set the desired width of the image
+              height={600} // Set the desired height of the image
+              className=" block mx-auto mb-4 bg-black p-2"
+            />
+            )
+          }
+           {
+            frontMatter?.image === "porterhouse" && (
+              <Image
+              src={petterhouse}
+              alt="logo"
+              width={800} // Set the desired width of the image
+              height={600} // Set the desired height of the image
+              className=" block mx-auto mb-4 bg-black p-2"
+            />
+            )
+          }
+           {
+            frontMatter?.image === "ribeye" && (
+              <Image
+              src={ribeye}
+              alt="logo"
+              width={800} // Set the desired width of the image
+              height={600} // Set the desired height of the image
+              className=" block mx-auto mb-4 bg-black p-2"
+            />
+            )
+          }
+           {
+            frontMatter?.image === "tomahawk" && (
+              <Image
+              src={tomahawk}
+              alt="logo"
+              width={800} // Set the desired width of the image
+              height={600} // Set the desired height of the image
+              className=" block mx-auto mb-4 bg-black p-2"
+            />
+            )
+          }
+       
           {frontMatter.description && (
             <p className="text-xl mb-4">{frontMatter.description}</p>
           )}
